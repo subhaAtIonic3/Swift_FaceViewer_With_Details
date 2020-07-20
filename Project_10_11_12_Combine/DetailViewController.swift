@@ -12,6 +12,7 @@ class DetailViewController: UIViewController {
 
     @IBOutlet var faceImageView: UIImageView!
     var titleString: String?
+    var imagePath: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,10 @@ class DetailViewController: UIViewController {
         title = titleString
         
         navigationItem.largeTitleDisplayMode = .never
+        
+        if let safeImagePath = imagePath {
+            faceImageView.image = UIImage(contentsOfFile: safeImagePath)
+        }
 
     }
     
